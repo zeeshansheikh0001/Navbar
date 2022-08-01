@@ -15,19 +15,20 @@ const Navbar = () => {
 
   const handleClick = event => {
 
-    toggleClick(true);
+    toggleClick(prev => !prev);
+    
     toggleClick2(false);
      toggleClick3(false)
   };
   const handleClick1 = event => {
     toggleClick(false);
-    toggleClick2(true);
+    toggleClick2(prev => !prev);
      toggleClick3(false)
   };
   const handleClick2 = event => {
     toggleClick(false);
     toggleClick2(false);
-     toggleClick3(true)
+     toggleClick3(prev => !prev);
     
   };
     const [activeHam,setActiveHam]=useState(false)
