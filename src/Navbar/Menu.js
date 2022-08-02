@@ -1,110 +1,121 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import logo from "../Images/freight-tiger-logo.png";
-import icon1 from "../Images/ft-visibility.svg";
-import icon2 from "../Images/ft-tms.svg";
-import icon3 from "../Images/ft-dfn.svg";
+// import logo from "../Images/freight-tiger-logo.png";
+import ftVisibilityIcon from "../Images/ft-visibility.svg";
+import ftTmsIcon from "../Images/ft-tms.svg";
+import ftDfnIcon from "../Images/ft-dfn.svg";
+import { BiChevronDown } from "react-icons/bi";
 
 function Menu() {
-  const [showButton, toggleClick] = useState(false);
-  const [showButton2, toggleClick2] = useState(false);
-  const [showButton3, toggleClick3] = useState(false);
-
-  const handleClick = (event) => {
-    toggleClick((prev) => !prev);
-
-    toggleClick2(false);
-    toggleClick3(false);
-  };
-  const handleClick1 = (event) => {
-    toggleClick(false);
-    toggleClick2((prev) => !prev);
-    toggleClick3(false);
-  };
-  const handleClick2 = (event) => {
-    toggleClick(false);
-    toggleClick2(false);
-    toggleClick3((prev) => !prev);
-  };
+  const mobileHeader = [
+    {
+      id: 1,
+      title: "FT Visibility",
+      description:
+        "Get complete visibility of movement of your trucks and material, easily, and all in one place.",
+      link: "#",
+      icon: ftTmsIcon,
+      alt: "Visibility Icon",
+    },
+    {
+      id: 2,
+      title: "FT TMS",
+      description:
+        "360º management of your freight operations, from procurement to delivery and billing.",
+      link: "#",
+      icon: ftDfnIcon,
+      alt: "Visibility Icon",
+    },
+    {
+      id: 3,
+      title: "FT Digital Freight Network",
+      description:
+        "Matching real time demand to real time access to 4k+ LSPs in the most transparent and neutral manner.",
+      link: "#",
+      icon: ftVisibilityIcon,
+      alt: "Visibility Icon",
+    },
+    {
+      id: 4,
+      title: "For LSPs",
+      menuItem: [
+        { id: 1, title: "FT Visibility for LSPs", link: "#" },
+        { id: 2, title: "FT Freight Network for LSPs", link: "#" },
+      ],
+    },
+    {
+      id: 5,
+      title: "Company",
+      menuItem: [
+        { id: 1, title: "About", link: "#" },
+        { id: 2, title: "Careers", link: "#" },
+        { id: 3, title: "Newsroom", link: "#" },
+      ],
+    },
+    {
+      id: 6,
+      title: "Resources",
+      menuItem: [
+        { id: 1, title: "All Resources", link: "#" },
+        { id: 2, title: "Blog", link: "#" },
+        { id: 3, title: "Case Studies", link: "#" },
+        { id: 4, title: "Testimonials", link: "#" },
+        { id: 5, title: "Product Newsletter - Nucleus", link: "#" },
+      ],
+    },
+  ];
+  const [activeMobileMenuId, setActiveMobileMenuId] = useState(false);
   return (
-    <div>
-      <div className="visible-icon">
-        <img src={icon1} className="app-icon1" alt="logo" />
-        <div className="styles_text">
-          <a href="#">FT Visibility</a>
-          <div className="styles-text-para">
-            <p>
-              Get complete visibility of movement of your trucks and material,
-              easily, and all in one place
-            </p>
-          </div>
+    <>
+      <div>
+        <div className="outer-container">
+          {/* <div className="visible-icon"> */}
+          {/* <img src={icon1} className="app-icon1" alt="logo" /> */}
+          {/* <div className="styles_text"> */}
+          {mobileHeader.map((menuItems) => {
+            return (
+              <>
+                <div className="visible-icon">
+                  {menuItems.icon && (
+                    <img
+                      src={menuItems.icon}
+                      className="app-icon1"
+                      alt={menuItems.alt}
+                    />
+                  )}
+                  <div className="styles_text">
+                    <a
+                      href={menuItems.link}
+                      onClick={() => {
+                        setActiveMobileMenuId(menuItems.id);
+                      }}
+                    >
+                      {menuItems.title}{" "}
+                      {menuItems.menuItem && <BiChevronDown />}
+                    </a>
+                    <div className="styles-text-para">
+                      <p>{menuItems.description}</p>
+                      {/* </div> */}
+                      {menuItems.menuItem &&
+                        menuItems.menuItem.map((dropItem) => {
+                          return activeMobileMenuId === menuItems.id ? (
+                            <ul className="ul_text">
+                              <li>{dropItem.title}</li>
+                            </ul>
+                          ) : null;
+                        })}
+                    </div>
+                  </div>
+                </div>
+                <div className="styles_divider_"></div>
+              </>
+            );
+          })}
         </div>
+        {/* </div> */}
       </div>
-      <div className="styles_divider_"></div>
-      <div className="visible-icon">
-        <img src={icon2} className="app-icon1" alt="logo" />
-        <div className="styles_text">
-          <a href="#">FT TMS</a>
-          <div className="styles-text-para">
-            <p>
-              360º management of your freight operations, from procurement to
-              delivery and billing.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="styles_divider_"></div>
-      <div className="visible-icon">
-        <img src={icon3} className="app-icon1" alt="logo" />
-        <div className="styles_text">
-          <a href="#">FT Digital Freight Network</a>
-          <div className="styles-text-para">
-            <p>
-              Matching real time demand to real time access to 4k+ LSPs in the
-              most transparent and neutral manner.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="styles_divider_"></div>
-      <div className="styles_text">
-        <a href="#" onClick={handleClick}>
-          For LSPs
-        </a>
-        {showButton ? (
-          <ul className="ul_text">
-            <li>FT Visibility for LSPs</li>
-            <li>FT Freight Network for LSPs</li>
-          </ul>
-        ) : null}
-      </div>
-      <div className="styles_divider_"></div>
-      <div className="styles_text">
-        <a href="#" onClick={handleClick1}>
-          Company
-        </a>
-        {showButton2 ? (
-          <ul className="ul_text">
-            <li>About</li>
-            <li>Careers</li>
-            <li>Newsroom</li>
-          </ul>
-        ) : null}
-      </div>
-      <div className="styles_divider_"></div>
-      <div className="styles_text">
-        <a href="#" onClick={handleClick2}>
-          Resources
-        </a>
-        {showButton3 ? (
-          <ul className="ul_text">
-            <li>About</li>
-            <li>Careers</li>
-            <li>Newsroom</li>
-          </ul>
-        ) : null}
-      </div>
-    </div>
+      {/* </div> */}
+    </>
   );
 }
 
