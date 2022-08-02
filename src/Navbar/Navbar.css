@@ -237,12 +237,12 @@ nav {
 
   text-decoration: none;
 }
-@media (max-width: 1290px) {
+@media (max-width: 980px) {
   .upper-nav {
     display: none;
   }
 }
-@media (min-width: 1290px) {
+@media (min-width: 980px) {
   .hamburger {
     display: none;
   }

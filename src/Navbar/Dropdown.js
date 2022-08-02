@@ -23,7 +23,6 @@ function Dropdown() {
           </div>
         </li>
         <li>
-          {" "}
           <a href="#">
             Resources
             <BiChevronDown />
@@ -49,11 +48,9 @@ function Dropdown() {
           </div>
         </li>
         <li>
-          {" "}
           <a href="#">Integration</a>
         </li>
         <li>
-          {" "}
           <a href="#">Social Impact</a>
         </li>
         <li>

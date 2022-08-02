@@ -57,7 +57,6 @@ function Menu() {
       <div className="visible-icon">
         <img src={icon3} className="app-icon1" alt="logo" />
         <div className="styles_text">
-          {" "}
           <a href="#">FT Digital Freight Network</a>
           <div className="styles-text-para">
             <p>
