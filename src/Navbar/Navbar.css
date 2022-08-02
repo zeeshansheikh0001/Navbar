@@ -29,13 +29,20 @@ nav {
   font-family: IBM Plex Sans;
   color: black;
   text-decoration: none;
-  padding: 7px 15px;
-  font-size: 12.5px;
+  padding: 0px 3px;
+  font-size: 13px;
 }
 .upper-nav ul {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
+  list-style: none; */
   list-style: none;
+  padding-left: 34px;
+}
+.oulet-container{
+  display: flex;
+  padding-left: 470px;
+  margin:-3px
 }
 .menu-dropdown {
   width: 10rem;
@@ -55,6 +62,9 @@ nav {
   line-height: 115%;
   display: grid;
 }
+.app-icon1{
+  margin: 12px -17px
+}
 .styles_text a {
   color: black;
 }
@@ -62,7 +72,7 @@ nav {
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 100%;
   padding: 0px 31px;
   color: #000000a6;
@@ -99,6 +109,7 @@ nav {
   display: flex;
   justify-content: space-between;
   list-style: none;
+  padding: 0px 10px;
 }
 .sub-menu-1 {
   display: none;
@@ -120,7 +131,7 @@ nav {
   font-weight: 600;
   font-size: 17px;
   line-height: 100%;
-  padding: 0px 32px;
+  padding: 0px 2px;
   color: #000000a6;
   margin-top: 0px;
   line-height: 30px;
@@ -129,18 +140,22 @@ nav {
   display: block;
   position: absolute;
   border: 1.5px solid #00000026;
-  margin-top: 13px;
+  margin-top: 9px;
   margin-left: -15px;
   background-color: #efefef;
 }
 .upper-nav ul li:hover .sub-menu-2 ul {
   display: block;
-  margin-left: -50px;
+  margin-left: -35px;
   border-bottom: 0px;
+}
+.upper-nav ul li:hover .sub-menu-2 ul li a{
+  font-size: 15px;
+  font-weight:bold;
 }
 .upper-nav ul li:hover .sub-menu-2 ul li {
   width: 240px;
-  padding: 15px;
+  padding: 14px;
   text-align: left;
 }
 .menu ul li:hover .sub-menu-1 {
@@ -153,7 +168,7 @@ nav {
 }
 .menu ul li:hover .sub-menu-1 ul {
   display: block;
-  margin-left: -50px;
+  margin-left: -25px;
   border-bottom: 0px;
 }
 .menu ul li:hover .sub-menu-1 ul li {
@@ -161,7 +176,9 @@ nav {
   padding: 15px;
   text-align: left;
 }
-
+.outer-container{
+padding: 0px 30px;
+}
 /* .menu ul li ul{
     background-color: #ffbe07;
     position: absolute;
@@ -226,7 +243,7 @@ nav {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   padding: 30px 0;
   background-color: #efefef;
@@ -237,12 +254,12 @@ nav {
 
   text-decoration: none;
 }
-@media (max-width: 980px) {
+@media (max-width: 1200px) {
   .upper-nav {
     display: none;
   }
 }
-@media (min-width: 980px) {
+@media (min-width: 1200px) {
   .hamburger {
     display: none;
   }
