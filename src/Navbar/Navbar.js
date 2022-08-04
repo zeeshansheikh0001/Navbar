@@ -7,19 +7,42 @@ import Menu from "./Menu";
 
 const Navbar = () => {
   const [activeHam, setActiveHam] = useState(false);
-  const newMenuItems = [
-    { item: "FT Visibility", href: "#" },
-    { item: "FT TMS", href: "#" },
-    { item: "FT Digital Freight Network", href: "#" },
-    {
-      item: "For LSPs",
-      href: "#",
-      subItems: [
-        { name: "FT Visibilty for LSPs", href: "#" },
-        { name: "FT Frieght Network for LSPs", href: "#" },
-      ],
-    },
-  ];
+  const menuItems = (
+    <ul>
+      <li>
+        <a href="#">FT Visibility</a>
+      </li>
+      <li>
+        <a href="#">FT TMS</a>
+      </li>
+      <li>
+        {" "}
+        <a href="#">FT Digital Freight Network</a>
+      </li>
+      <li>
+        <a href="#">
+          For LSPs
+          <BiChevronDown />
+        </a>
+        <div className="sub-menu-1">
+          <ul>
+            <li>
+              <a href="#">FT Visibilty for LSPs</a>
+            </li>
+            <li>
+              <a href="#">Ft Frieght Network for LSPs</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="#" className="get-demo">
+          Get a Demo
+        </a>
+      </li>
+    </ul>
+  );
+
   return (
     <div className="navbar-container">
       <nav>
@@ -28,37 +51,7 @@ const Navbar = () => {
         </div>
         <div className="nav-container">
           <img src={logo} className="app-logo" alt="logo" />
-          <div className="menu">
-            {/* {menuItems} */}
-            {newMenuItems.map((menuItem) => {
-              return (
-                <ul>
-                  <li>
-                    <a href={menuItem.href}>{menuItem.item}{menuItem.subItems && <BiChevronDown/>}</a>
-                    <div className="sub-menu-1">
-                      {menuItem.subItems &&
-                        menuItem.subItems.map((subItem) => {
-                          return (
-                            <ul>
-                              <li>
-                                <a href={subItem.href}>{subItem.name}</a>
-                              </li>
-                            </ul>
-                          );
-                        })}
-                    </div>
-                  </li>
-                </ul>
-              );
-            })}
-            <ul>
-              <li>
-                <a href="#" className="get-demo">
-                  Get a Demo
-                </a>
-              </li>
-            </ul>
-          </div>
+          <div className="menu">{menuItems}</div>
           <button
             className={activeHam ? "hamburger active-hamburger" : "hamburger"}
             onClick={() => setActiveHam(!activeHam)}
